@@ -44,13 +44,13 @@ Full CRUD via modal · Live search · Filter by type, category & date range · S
 ### 📊 Insights
 Top spending category · Month-over-month comparison · Average daily spend · 6-month bar chart · Category breakdown table
 
-### 🎯 Budgets *(new)*
+### 🎯 Budgets
 Set monthly spending limits per category with animated progress bars · Over-budget alerts with visual warning states · Edit and delete budgets · Per-budget history mini-chart (1M / 3M / 12M toggle) · Summary cards for total budgeted, total spent, and budgets at risk
 
-### 🔒 Fixed Payments *(new)*
+### 🔒 Fixed Payments
 Track recurring obligations independently from transactions — Rent/Maintenance, EMIs, Insurance premiums, SIPs/Mutual Funds, Subscriptions, and custom fixed costs · Full CRUD (add, edit, delete) · Monthly total commitment summary card · Colour-coded type badges with emoji icons
 
-### 👑 Premium Page *(new)*
+### 👑 Premium Page
 Three-tier upgrade plans (Basic · Pro · Elite) with INR pricing, 45% limited-time discount display, per-plan feature comparison checklist, and a one-click plan selection CTA
 
 ### 🔐 Auth & RBAC
