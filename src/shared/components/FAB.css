@@ -1,0 +1,30 @@
+.fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  color: #0D0D0D;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,200,150,0.4);
+  transition: all var(--transition-fast);
+  z-index: 90;
+}
+
+.fab:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 6px 28px rgba(0,200,150,0.55);
+  background: #00dba7;
+}
+
+.fab:active { transform: scale(0.96); }
+
+@media (min-width: 769px) {
+  .fab { display: none; }
+}

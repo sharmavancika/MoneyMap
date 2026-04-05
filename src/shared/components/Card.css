@@ -1,0 +1,27 @@
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.card--glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] .card--glass {
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.card--pad-sm { padding: 14px; }
+.card--pad-md { padding: 20px; }
+.card--pad-lg { padding: 28px; }
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
