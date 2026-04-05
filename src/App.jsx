@@ -11,6 +11,7 @@ import { Placeholder } from '@/features/Placeholder';
 import { Login } from '@/features/auth/Login';
 import { Splash } from '@/features/auth/Splash';
 import { Premium } from '@/features/premium/Premium';
+import { MunimButton, MunimChat } from '@/features/munim/Munim';
 import './App.css';
 
 const PAGE_MAP = {
@@ -36,11 +37,14 @@ function App() {
   return <AppLayout />;
 }
 
+const MUNIM_WIDTH = 400;
+
 const AppLayout = () => {
   const { activeNav } = useStore();
   const [transitionKey, setTransitionKey] = useState(activeNav);
   const [animClass, setAnimClass] = useState('animate-screenEnter');
   const prevNav = useRef(activeNav);
+  const [munimOpen, setMunimOpen] = useState(false);
 
   useEffect(() => {
     if (activeNav !== prevNav.current) {
@@ -51,7 +55,7 @@ const AppLayout = () => {
   }, [activeNav]);
 
   return (
-    <div className="app-layout">
+    <div className="app-layout" style={munimOpen ? { paddingRight: MUNIM_WIDTH } : {}}>
       <Sidebar />
       <div className="app-main">
         <Topbar />
@@ -62,6 +66,10 @@ const AppLayout = () => {
         </main>
       </div>
       <FAB />
+      {munimOpen
+        ? <MunimChat onClose={() => setMunimOpen(false)} />
+        : <MunimButton onClick={() => setMunimOpen(true)} />
+      }
     </div>
   );
 };

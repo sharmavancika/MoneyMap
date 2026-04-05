@@ -1,0 +1,811 @@
+/* ============================================================
+   MUNIM — FAB BUTTON
+   ============================================================ */
+.munim-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  z-index: 290;
+  background: #0E0E0E;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 6px 18px 6px 6px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16);
+  transition: box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1), background 0.2s;
+  animation: munimFabIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+
+[data-theme="dark"] .munim-fab {
+  background: #1A1A1A;
+  border-color: rgba(255,255,255,0.1);
+}
+
+.munim-fab:hover {
+  background: #1C1C1C;
+  box-shadow: 0 12px 40px rgba(0,200,150,0.25), 0 4px 12px rgba(0,0,0,0.22);
+  transform: translateY(-3px);
+}
+
+.munim-fab:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+@keyframes munimFabIn {
+  from { opacity: 0; transform: scale(0.65) translateY(24px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.munim-fab__ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent-green);
+  opacity: 0;
+  animation: munimPulse 3.5s ease-in-out 1.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes munimPulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.07); opacity: 0; }
+  100% { transform: scale(1.07); opacity: 0; }
+}
+
+.munim-fab__inner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00D4A0 0%, #00A87A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,200,150,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.munim-fab__letter {
+  font-size: 19px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  font-family: 'Noto Sans Devanagari', 'Mukta', 'Segoe UI', sans-serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.munim-fab__inner::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 9px;
+  height: 9px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2px solid #0E0E0E;
+  box-shadow: 0 0 6px rgba(34,197,94,0.5);
+}
+
+[data-theme="dark"] .munim-fab__inner::after {
+  border-color: #1A1A1A;
+}
+
+.munim-fab__label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 11px;
+}
+
+.munim-fab__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.munim-fab__tagline {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.munim-fab__dot { display: none; }
+
+
+/* ============================================================
+   MUNIM — PANEL BACKDROP
+   ============================================================ */
+.munim-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.32);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 299;
+  animation: backdropIn 0.25s ease both;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ============================================================
+   MUNIM — SIDE PANEL
+   ============================================================ */
+.munim-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  background: #0F0F0F;
+  border-left: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  flex-direction: column;
+  z-index: 300;
+  box-shadow: -12px 0 60px rgba(0,0,0,0.35);
+  animation: panelIn 0.34s cubic-bezier(0.4,0,0.2,1) both;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .munim-panel {
+  background: #0C0C0C;
+  border-left-color: rgba(255,255,255,0.06);
+}
+
+@keyframes panelIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* ── Panel Header ── */
+.munim-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(0,200,150,0.06) 0%, transparent 100%);
+}
+
+.munim-panel__header-left {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.munim-panel__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00D4A0, #008F66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 0 0 3px rgba(0,200,150,0.2), 0 4px 16px rgba(0,200,150,0.25);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.munim-panel__status-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2.5px solid #0F0F0F;
+  box-shadow: 0 0 8px rgba(34,197,94,0.6);
+  animation: statusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,100% { opacity: 1; box-shadow: 0 0 8px rgba(34,197,94,0.6); }
+  50%      { opacity: 0.7; box-shadow: 0 0 4px rgba(34,197,94,0.3); }
+}
+
+.munim-panel__title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.munim-panel__subtitle {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.38);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+.munim-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.munim-panel__btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.munim-panel__btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.14);
+}
+
+.munim-panel__btn--close:hover {
+  background: rgba(240,62,62,0.15);
+  color: #F87171;
+  border-color: rgba(240,62,62,0.25);
+}
+
+/* ── Tabs ── */
+.munim-tabs {
+  display: flex;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.munim-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 0;
+  border: none;
+  background: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.munim-tab:hover { color: rgba(255,255,255,0.6); }
+.munim-tab--active { color: #00C896; border-bottom-color: #00C896; }
+
+
+/* ============================================================
+   CHAT TAB
+   ============================================================ */
+.munim-chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  background: #0F0F0F;
+}
+
+.munim-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-behavior: smooth;
+  min-height: 0;
+}
+
+.munim-messages::-webkit-scrollbar { width: 3px; }
+.munim-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+.munim-msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  animation: msgIn 0.28s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.munim-msg--user { flex-direction: row-reverse; }
+
+.munim-msg__ava {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00D4A0, #008F66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,200,150,0.3);
+}
+
+.munim-msg__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 80%;
+}
+
+.munim-msg--user .munim-msg__body { align-items: flex-end; }
+
+.munim-msg__bubble {
+  padding: 10px 15px;
+  border-radius: 18px;
+  line-height: 1.58;
+}
+
+.munim-msg--assistant .munim-msg__bubble {
+  background: #1E1E1E;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-bottom-left-radius: 5px;
+  color: rgba(255,255,255,0.9);
+}
+
+.munim-msg--user .munim-msg__bubble {
+  background: linear-gradient(135deg, #00C896, #008F66);
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,200,150,0.25);
+}
+
+.munim-msg__text {
+  font-size: 13.5px;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.munim-msg__time {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  padding: 0 3px;
+}
+
+.munim-msg--user .munim-msg__time { text-align: right; }
+
+/* ── Typing indicator ── */
+.munim-typing {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  animation: msgIn 0.25s ease both;
+}
+
+.munim-typing__ava {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00D4A0, #008F66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+  flex-shrink: 0;
+}
+
+.munim-typing__bubble {
+  background: #1E1E1E;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  border-bottom-left-radius: 5px;
+  padding: 13px 18px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.munim-typing__bubble span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00C896;
+  opacity: 0.5;
+  animation: typingDot 1.3s ease-in-out infinite;
+}
+
+.munim-typing__bubble span:nth-child(2) { animation-delay: 0.18s; }
+.munim-typing__bubble span:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes typingDot {
+  0%,60%,100% { transform: translateY(0);    opacity: 0.35; }
+  30%          { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ── Error ── */
+.munim-error {
+  margin: 0 16px;
+  padding: 11px 15px;
+  border-radius: 10px;
+  background: rgba(240,62,62,0.1);
+  border: 1px solid rgba(240,62,62,0.2);
+  color: #F87171;
+  font-size: 12.5px;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+/* ── Quick chips ── */
+.munim-quick {
+  padding: 0 18px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.munim-quick__chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.munim-quick__chip:hover {
+  border-color: rgba(0,200,150,0.45);
+  color: #00C896;
+  background: rgba(0,200,150,0.08);
+  transform: translateY(-1px);
+}
+
+/* ── Input row ── */
+.munim-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  background: #141414;
+  flex-shrink: 0;
+}
+
+.munim-textarea {
+  flex: 1;
+  min-height: 40px;
+  max-height: 110px;
+  resize: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 13px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: rgba(255,255,255,0.9);
+  outline: none;
+  line-height: 1.5;
+  transition: border-color 0.15s, background 0.15s;
+  overflow-y: auto;
+}
+
+.munim-textarea::placeholder { color: rgba(255,255,255,0.25); }
+.munim-textarea:focus {
+  border-color: rgba(0,200,150,0.5);
+  background: rgba(255,255,255,0.08);
+}
+.munim-textarea:disabled { opacity: 0.4; }
+
+.munim-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.munim-send-btn--ready {
+  background: linear-gradient(135deg, #00C896, #009E74);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 3px 14px rgba(0,200,150,0.4);
+}
+
+.munim-send-btn--ready:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0,200,150,0.55);
+}
+
+.munim-send-btn:disabled { cursor: default; }
+
+.munim-footer-note {
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  padding: 6px 0 10px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  background: #141414;
+}
+
+
+/* ============================================================
+   INSIGHTS TAB
+   ============================================================ */
+.munim-insights {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+  background: #0F0F0F;
+}
+
+.munim-insights::-webkit-scrollbar { width: 3px; }
+.munim-insights::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+.munim-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: -8px;
+}
+
+/* ── Snap Cards ── */
+.munim-snapshot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.munim-snap-card {
+  background: #1A1A1A;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: cardPop 0.4s cubic-bezier(0.34,1.4,0.64,1) both;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  cursor: default;
+}
+
+.munim-snap-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.munim-snap-card:nth-child(1) { animation-delay: 0.04s; }
+.munim-snap-card:nth-child(2) { animation-delay: 0.09s; }
+.munim-snap-card:nth-child(3) { animation-delay: 0.14s; }
+.munim-snap-card:nth-child(4) { animation-delay: 0.19s; }
+
+@keyframes cardPop {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.munim-snap-card__icon { font-size: 20px; line-height: 1; }
+
+.munim-snap-card__val {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--snap-color, rgba(255,255,255,0.9));
+  line-height: 1.1;
+}
+
+.munim-snap-card__label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.3);
+}
+
+.munim-snap-card__sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 1px;
+}
+
+/* ── Breakdown ── */
+.munim-breakdown { display: flex; flex-direction: column; gap: 12px; }
+
+.munim-brow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: cardPop 0.35s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+
+.munim-brow:nth-child(1) { animation-delay: 0.06s; }
+.munim-brow:nth-child(2) { animation-delay: 0.10s; }
+.munim-brow:nth-child(3) { animation-delay: 0.14s; }
+.munim-brow:nth-child(4) { animation-delay: 0.18s; }
+.munim-brow:nth-child(5) { animation-delay: 0.22s; }
+
+.munim-brow__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.munim-brow__cat {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+.munim-brow__right { display: flex; align-items: center; gap: 8px; }
+
+.munim-brow__pct {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.06);
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+.munim-brow__amt {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
+
+.munim-brow__track {
+  height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.munim-brow__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #00C896, #009E74);
+  transform-origin: left;
+  animation: barExpand 0.65s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+@keyframes barExpand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Tip ── */
+.munim-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(0,200,150,0.08);
+  border: 1px solid rgba(0,200,150,0.2);
+  border-radius: 14px;
+}
+
+.munim-tip__icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.munim-tip__text {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Ask Munim CTA ── */
+.munim-ask-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,200,150,0.3);
+  background: rgba(0,200,150,0.08);
+  color: #00C896;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.munim-ask-btn:hover {
+  background: #00C896;
+  color: #0F0F0F;
+  border-color: #00C896;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,200,150,0.3);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .munim-panel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px 22px 0 0;
+    top: auto;
+    height: 90vh;
+    animation: panelUp 0.34s cubic-bezier(0.4,0,0.2,1) both;
+  }
+
+  @keyframes panelUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .munim-fab {
+    bottom: 20px;
+    right: 16px;
+    padding: 6px 14px 6px 6px;
+  }
+
+  .munim-panel__header {
+    padding-top: 24px;
+  }
+
+  /* Drag handle hint */
+  .munim-panel::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+  }
+}
