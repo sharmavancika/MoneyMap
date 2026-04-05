@@ -1,0 +1,78 @@
+/* ===== MoneyMap Theme Variables ===== */
+:root {
+  /* Light Mode */
+  --bg-primary: #F5F4F0;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #ECECEA;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-input: #F0EFEB;
+  --bg-hover: #F0EFEB;
+  --bg-modal: rgba(0,0,0,0.45);
+
+  --text-primary: #0D0D0D;
+  --text-secondary: #6B6B6B;
+  --text-tertiary: #9A9A9A;
+  --text-inverse: #FFFFFF;
+
+  --accent-green: #00C896;
+  --accent-green-dim: #00C89618;
+  --accent-red: #FF4757;
+  --accent-red-dim: #FF475718;
+  --accent-blue: #4361EE;
+  --accent-blue-dim: #4361EE18;
+  --accent-amber: #FFB703;
+  --accent-amber-dim: #FFB70318;
+  --accent-purple: #7B2FBE;
+  --accent-purple-dim: #7B2FBE18;
+  --accent-teal: #00B4D8;
+  --accent-teal-dim: #00B4D818;
+
+  --border-color: #E5E5E2;
+  --border-light: #EFEFED;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --sidebar-width: 240px;
+  --topbar-height: 64px;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0B0B0B;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1C1C1C;
+  --bg-card: #161616;
+  --bg-sidebar: #111111;
+  --bg-input: #1E1E1E;
+  --bg-hover: #1E1E1E;
+  --bg-modal: rgba(0,0,0,0.72);
+
+  --text-primary: #F0F0F0;
+  --text-secondary: #8A8A8A;
+  --text-tertiary: #555555;
+  --text-inverse: #0D0D0D;
+
+  --border-color: #242424;
+  --border-light: #1E1E1E;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
+}

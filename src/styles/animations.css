@@ -1,0 +1,170 @@
+/* ===== MoneyMap Animation System ===== */
+/* Duration range: 150ms–400ms | Easing: ease-in-out / cubic-bezier */
+
+/* ── Keyframes ─────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Logo / splash: fade + scale entrance */
+@keyframes logoReveal {
+  0%   { opacity: 0; transform: scale(0.82); }
+  60%  { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Screen slide-fade transitions */
+@keyframes screenEnterRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes screenFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Button tap feedback */
+@keyframes tapPulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Icon bounce on action */
+@keyframes iconBounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.22); }
+  65%  { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Progress bar fill */
+@keyframes barGrow {
+  from { width: 0; }
+}
+
+/* Subtle float (decorative elements) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Pulse (status indicators) */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* Bounce in (modals / toasts) */
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.82); }
+  55%  { opacity: 1; transform: scale(1.04); }
+  80%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+/* ── Utility Classes ──────────────────────────────── */
+
+.animate-fadeIn       { animation: fadeIn       200ms ease-in-out both; }
+.animate-fadeInUp     { animation: fadeInUp     280ms ease-in-out both; }
+.animate-fadeInDown   { animation: fadeInDown   280ms ease-in-out both; }
+.animate-slideInLeft  { animation: slideInLeft  300ms ease-in-out both; }
+.animate-slideInRight { animation: slideInRight 300ms ease-in-out both; }
+.animate-scaleIn      { animation: scaleIn      250ms ease-in-out both; }
+.animate-bounceIn     { animation: bounceIn     360ms cubic-bezier(0.34,1.56,0.64,1) both; }
+.animate-screenEnter  { animation: screenEnterRight 300ms cubic-bezier(0.4,0,0.2,1) both; }
+.animate-screenFade   { animation: screenFade        200ms ease-in-out both; }
+.animate-logoReveal   { animation: logoReveal  400ms cubic-bezier(0.34,1.28,0.64,1) both; }
+.animate-pulse        { animation: pulse  2s   ease-in-out infinite; }
+.animate-spin         { animation: spin   0.75s linear      infinite; }
+.animate-float        { animation: float  3s   ease-in-out  infinite; }
+.animate-barGrow      { animation: barGrow 600ms cubic-bezier(0.4,0,0.2,1) both; }
+
+/* ── Stagger delays ───────────────────────────────── */
+.delay-50  { animation-delay:  50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ── Skeleton / Shimmer ───────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary)   25%,
+    var(--bg-hover)      50%,
+    var(--bg-tertiary)   75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton--text   { height: 14px; border-radius: var(--radius-full); margin-bottom: 8px; }
+.skeleton--card   { height: 88px; border-radius: var(--radius-md); }
+.skeleton--circle { border-radius: 50%; }
+
+/* ── Interactive element animations ──────────────── */
+.tap-feedback {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.tap-feedback:active {
+  transform: scale(0.96) !important;
+}
+
+.icon-interactive {
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+.icon-interactive:hover  { transform: scale(1.12); }
+
+/* ── Reduced motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
