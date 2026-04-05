@@ -1,7 +1,6 @@
 .app-layout {
   display: flex;
   min-height: 100vh;
-  transition: padding-right 0.32s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .app-main {
