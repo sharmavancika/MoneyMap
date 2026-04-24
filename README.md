@@ -169,10 +169,9 @@ npm run preview   # Preview production build locally
 - [x] Dark / light mode with CSS token system
 - [x] RBAC (Admin / Viewer)
 - [x] Mobile-first responsive layout + FAB
-- [ ] Investments — portfolio, mutual funds, stocks
-- [ ] Debts — EMI schedule and repayment tracker
-- [ ] Recurring transactions (auto-add on schedule)
-- [ ] Backend integration (REST / Firebase)
+- [x] Investments — portfolio, mutual funds, stocks
+- [x] Debts — EMI schedule and repayment tracker
+- [x] Recurring transactions (auto-add on schedule)
 
 ---
 
